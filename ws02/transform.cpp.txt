@@ -1,0 +1,30 @@
+#include <iostream>
+
+
+using namespace std;
+
+
+void base10to2(int base10_num)
+{
+int base2_num[50]; //array to store binary number (base 2)
+int i = 0;
+while(base10_num > 0) { //As long as number > 0,
+base2_num[i++] = base10_num % 2; //take remainder when divided by 2
+base10_num = base10_num/2; // update number to number/2
+}
+int j;
+cout << "\nBase2 representation = ";
+for(j = i-1; j >= 0; j--){ //print the base2_num in reverse order for base2 representation
+cout << base2_num[j];
+}
+cout << endl;
+}
+
+
+int main()
+{
+int num;
+cout << "\nEnter number in base 10 : "; //read the number from user
+cin >> num;
+base10to2(num); //convert number to binary
+}

@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+
+string addBinaryNumbers(string a, string b) {
+int l1 = a.length();
+int l2 = b.length();
+
+string result = "";
+int carry = 0;
+
+int i = 0;
+while(i < l1 || i < l2) {
+
+
+int d1 = 0, d2 = 0;
+
+if(i < l1)
+d1 = a.at(l1-i-1) - '0';
+if(i < l2)
+d2 = a.at(l2-i-1) - '0';
+int d = d1 + d2 + carry;
+
+if(d == 0) {
+result = "0" + result;
+carry = 0;
+} else if(d == 1) {
+result = "1" + result;
+carry = 0;
+} else if(d == 2) {
+result = "0" + result;
+carry = 1;
+} else if(d == 3) {
+result = "1" + result;
+carry = 1;
+}
+i++;
+}
+if(carry == 1) {
+result = "1" + result;
+}
+return result;
+}
+
+// Driver Program
+int main()
+{
+string s1 = "110001";
+string s2 = "110001";
+cout << "Addition of " << s1 << " and " << s2;
+cout << ": " << addBinaryNumbers(s1, s2) << endl;
+return 0;
+}
